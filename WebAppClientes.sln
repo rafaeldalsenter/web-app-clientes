@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Infra.CrossC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Infra.Data", "WebAppClientes.Infra.Data\WebAppClientes.Infra.Data.csproj", "{DFC3D0E8-644D-438A-A10C-2C8CC1C9F7E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppClientes.Ui.Web", "WebAppClientes.Ui.Web\WebAppClientes.Ui.Web.csproj", "{5EE6BB60-8DD6-42BD-AD8D-2EDCC9BE2F05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Ui.Web", "WebAppClientes.Ui.Web\WebAppClientes.Ui.Web.csproj", "{5EE6BB60-8DD6-42BD-AD8D-2EDCC9BE2F05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EF06DBCE-382C-4C18-A597-88AA66A300F4}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

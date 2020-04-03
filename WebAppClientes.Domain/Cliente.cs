@@ -1,7 +1,13 @@
-﻿namespace WebAppClientes.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebAppClientes.Domain
 {
     public class Cliente : BaseDomain
     {
+        protected Cliente()
+        {
+        }
+
         public Cliente(int id, string nome, string cpf, string rua, string bairro, string cidade, string obs)
         {
             SetId(id);
@@ -27,12 +33,27 @@
 
         public void SetObservacoes(string obs) => Observacoes = obs;
 
+        [Key]
         public int Id { get; private set; }
+
+        [Required]
+        [MaxLength(100)]
         public string Nome { get; private set; }
+
+        [Required]
+        [MaxLength(14)]
         public string Cpf { get; private set; }
+
+        [MaxLength(200)]
         public string Rua { get; private set; }
+
+        [MaxLength(100)]
         public string Bairro { get; private set; }
+
+        [MaxLength(100)]
         public string Cidade { get; private set; }
+
+        [MaxLength(1000)]
         public string Observacoes { get; private set; }
     }
 }

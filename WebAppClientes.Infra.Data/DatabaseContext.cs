@@ -7,14 +7,9 @@ namespace WebAppClientes.Infra.Data
     {
         public DatabaseContext(DbContextOptions options) :
             base(options)
-        { }
+        {
+        }
 
         public DbSet<Cliente> Clientes { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Cliente>()
-                .HasKey(p => p.Id);
-        }
     }
 }
