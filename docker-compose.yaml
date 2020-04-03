@@ -1,9 +1,15 @@
 version: '3'
 
 services:
-  teste-postgres-compose:
+  db-postgres:
     image: postgres
+    container_name: db-postgres
     environment:
       POSTGRES_PASSWORD: "postgres"
     ports:
       - "5432:5432"
+  db-redis:
+    image: redis
+    container_name: db-redis
+    ports:
+      - "6379:6379"
