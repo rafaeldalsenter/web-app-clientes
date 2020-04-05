@@ -8,8 +8,11 @@ services:
       POSTGRES_PASSWORD: "postgres"
     ports:
       - "5432:5432"
-  db-redis:
-    image: redis
-    container_name: db-redis
+  db-mongo:
+    image: mongo
+    container_name: db-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
     ports:
-      - "6379:6379"
+      - "27017:27017"

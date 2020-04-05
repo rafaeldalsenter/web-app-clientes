@@ -19,8 +19,6 @@ namespace WebAppClientes.Domain
             SetObservacoes(obs);
         }
 
-        public void SetId(int id) => Id = id;
-
         public void SetNome(string nome) => Nome = nome;
 
         public void SetCpf(string cpf) => Cpf = cpf;
@@ -32,9 +30,6 @@ namespace WebAppClientes.Domain
         public void SetCidade(string cidade) => Cidade = cidade;
 
         public void SetObservacoes(string obs) => Observacoes = obs;
-
-        [Key]
-        public int Id { get; private set; }
 
         [Required]
         [MaxLength(100)]
