@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
 using WebAppClientes.Domain.Commands;
 using WebAppClientes.Domain.Handlers;
 using WebAppClientes.Infra.Data;
@@ -16,6 +17,11 @@ namespace WebAppClientes.Infra.CrossCutting.Ioc
         {
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddSingleton<IConnectionMultiplexer>(
+                ConnectionMultiplexer.Connect(configuration.GetConnectionString("RedisConnection")));
+
+            services.AddScoped<RedisClient>();
 
             services.AddScoped<IClienteServices, ClienteServices>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
