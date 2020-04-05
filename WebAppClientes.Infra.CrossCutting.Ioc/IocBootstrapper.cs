@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebAppClientes.Domain.Commands;
+using WebAppClientes.Domain.Handlers;
 using WebAppClientes.Infra.Data;
 using WebAppClientes.Repositories;
 using WebAppClientes.Services;
@@ -16,6 +19,10 @@ namespace WebAppClientes.Infra.CrossCutting.Ioc
 
             services.AddScoped<IClienteServices, ClienteServices>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
+
+            services.AddScoped<IRequestHandler<CreateClienteCommand, bool>, CreateClienteCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveClienteCommand, bool>, RemoveClienteCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateClienteCommand, bool>, UpdateClienteCommandHandler>();
         }
     }
 }
