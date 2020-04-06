@@ -1,9 +1,11 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using WebAppClientes.Domain.Builders;
 using WebAppClientes.Domain.Commands;
 using WebAppClientes.Domain.Interfaces;
+using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Domain.Handlers
 {
@@ -11,10 +13,13 @@ namespace WebAppClientes.Domain.Handlers
     {
         private readonly IClienteForCommandRepository _clienteForCommandRepository;
         private readonly IClienteForQueryRepository _clienteForQueryRepository;
+        private readonly IMapper _mapper;
 
-        public CreateClienteCommandHandler(IClienteForCommandRepository clienteForCommandRepository,
+        public CreateClienteCommandHandler(IMapper mapper,
+            IClienteForCommandRepository clienteForCommandRepository,
             IClienteForQueryRepository clienteForQueryRepository)
         {
+            _mapper = mapper;
             _clienteForCommandRepository = clienteForCommandRepository;
             _clienteForQueryRepository = clienteForQueryRepository;
         }
@@ -34,9 +39,9 @@ namespace WebAppClientes.Domain.Handlers
                 return Task.FromResult(false);
 
             _clienteForCommandRepository.Add(domain);
-            // Aqui vou ter que ver como retornar o id inserido
+            // TODO Aqui vou ter que ver como retornar o id inserido
 
-            _clienteForQueryRepository.AddAsync(null);
+            _clienteForQueryRepository.AddAsync(_mapper.Map<ClienteForQueryDto>(domain));
 
             return Task.FromResult(true);
         }

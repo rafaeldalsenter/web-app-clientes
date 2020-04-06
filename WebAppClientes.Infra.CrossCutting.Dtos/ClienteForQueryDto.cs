@@ -2,11 +2,11 @@
 {
     public class ClienteForQueryDto : BaseDto
     {
-        public string Nome { get; private set; }
-        public string Cpf { get; private set; }
-        public string Rua { get; private set; }
-        public string Bairro { get; private set; }
-        public string Cidade { get; private set; }
-        public string Observacoes { get; private set; }
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+        public string Rua { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string Observacoes { get; set; }
     }
 }

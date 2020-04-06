@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAppClientes.Infra.CrossCutting;
+using WebAppClientes.Infra.CrossCutting.AutoMapper;
 using WebAppClientes.Infra.CrossCutting.Ioc;
 using WebAppClientes.Infra.Data;
 
@@ -30,6 +31,8 @@ namespace WebAppClientes.Ui.Web
             services.AddHealthChecks();
 
             services.AddMediatR(typeof(Startup));
+
+            services.RegisterMappers();
 
             IocBootstrapper.RegisterServices(services, _configuration);
         }

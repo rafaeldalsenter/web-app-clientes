@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebAppClientes.Infra.CrossCutting.AutoMapper\WebAppClientes.Infra.CrossCutting.AutoMapper.csproj" />
     <ProjectReference Include="..\WebAppClientes.Infra.CrossCutting.Ioc\WebAppClientes.Infra.CrossCutting.Ioc.csproj" />
   </ItemGroup>
 

@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppClientes.Infra.CrossC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Infra.CrossCutting.Ioc", "WebAppClientes.Infra.CrossCutting.Ioc\WebAppClientes.Infra.CrossCutting.Ioc.csproj", "{9E45B728-3C1B-4152-AFBA-0C70674A54CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppClientes.Infra.CrossCutting.AutoMapper", "WebAppClientes.Infra.CrossCutting.AutoMapper\WebAppClientes.Infra.CrossCutting.AutoMapper.csproj", "{D8A4D9EF-7D43-4B99-95FB-DFF4A08AD2DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{9E45B728-3C1B-4152-AFBA-0C70674A54CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E45B728-3C1B-4152-AFBA-0C70674A54CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E45B728-3C1B-4152-AFBA-0C70674A54CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A4D9EF-7D43-4B99-95FB-DFF4A08AD2DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A4D9EF-7D43-4B99-95FB-DFF4A08AD2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A4D9EF-7D43-4B99-95FB-DFF4A08AD2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A4D9EF-7D43-4B99-95FB-DFF4A08AD2DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
