@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Services", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Repositories", "WebAppClientes.Repositories\WebAppClientes.Repositories.csproj", "{E55008BE-863A-4634-971B-EE73E86F3BC8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Infra.CrossCutting.Ioc", "WebAppClientes.Infra.CrossCutting.Ioc\WebAppClientes.Infra.CrossCutting.Ioc.csproj", "{C2D2A3CB-92EE-48A4-B4F7-E096E40140D5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Infra.Data", "WebAppClientes.Infra.Data\WebAppClientes.Infra.Data.csproj", "{DFC3D0E8-644D-438A-A10C-2C8CC1C9F7E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Ui.Web", "WebAppClientes.Ui.Web\WebAppClientes.Ui.Web.csproj", "{5EE6BB60-8DD6-42BD-AD8D-2EDCC9BE2F05}"
@@ -19,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yaml = docker-compose.yaml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppClientes.Infra.CrossCutting.Dtos", "WebAppClientes.Infra.CrossCutting.Dtos\WebAppClientes.Infra.CrossCutting.Dtos.csproj", "{997420FF-A513-4F64-BEE4-912139F507AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppClientes.Infra.CrossCutting.Ioc", "WebAppClientes.Infra.CrossCutting.Ioc\WebAppClientes.Infra.CrossCutting.Ioc.csproj", "{9E45B728-3C1B-4152-AFBA-0C70674A54CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,10 +40,6 @@ Global
 		{E55008BE-863A-4634-971B-EE73E86F3BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E55008BE-863A-4634-971B-EE73E86F3BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E55008BE-863A-4634-971B-EE73E86F3BC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2D2A3CB-92EE-48A4-B4F7-E096E40140D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2D2A3CB-92EE-48A4-B4F7-E096E40140D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2D2A3CB-92EE-48A4-B4F7-E096E40140D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2D2A3CB-92EE-48A4-B4F7-E096E40140D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DFC3D0E8-644D-438A-A10C-2C8CC1C9F7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DFC3D0E8-644D-438A-A10C-2C8CC1C9F7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFC3D0E8-644D-438A-A10C-2C8CC1C9F7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,6 +48,14 @@ Global
 		{5EE6BB60-8DD6-42BD-AD8D-2EDCC9BE2F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE6BB60-8DD6-42BD-AD8D-2EDCC9BE2F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE6BB60-8DD6-42BD-AD8D-2EDCC9BE2F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997420FF-A513-4F64-BEE4-912139F507AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997420FF-A513-4F64-BEE4-912139F507AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997420FF-A513-4F64-BEE4-912139F507AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997420FF-A513-4F64-BEE4-912139F507AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E45B728-3C1B-4152-AFBA-0C70674A54CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E45B728-3C1B-4152-AFBA-0C70674A54CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E45B728-3C1B-4152-AFBA-0C70674A54CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E45B728-3C1B-4152-AFBA-0C70674A54CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

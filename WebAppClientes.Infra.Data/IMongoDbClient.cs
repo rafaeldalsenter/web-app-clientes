@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WebAppClientes.Domain;
+﻿using System.Linq;
+using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Infra.Data
 {
     public interface IMongoDbClient
     {
-        IQueryable<T> Get<T>() where T : BaseDomain;
+        IQueryable<T> Get<T>() where T : BaseDto;
 
-        void InsertOne<T>(T obj) where T : BaseDomain;
+        void InsertOne<T>(T obj) where T : BaseDto;
 
-        void ReplaceOne<T>(int id, T obj) where T : BaseDomain;
+        void ReplaceOne<T>(T obj) where T : BaseDto;
 
-        void DeleteOne<T>(int id) where T : BaseDomain;
+        void DeleteOne<T>(int id) where T : BaseDto;
     }
 }

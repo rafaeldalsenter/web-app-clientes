@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebAppClientes.Infra.CrossCutting;
 using WebAppClientes.Infra.CrossCutting.Ioc;
 using WebAppClientes.Infra.Data;
 

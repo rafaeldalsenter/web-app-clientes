@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System.Linq;
 using WebAppClientes.Domain;
+using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Infra.Data
 {
@@ -18,16 +19,16 @@ namespace WebAppClientes.Infra.Data
         private IMongoCollection<T> GetCollection<T>()
             => _mongoDatabase.GetCollection<T>(nameof(T));
 
-        public IQueryable<T> Get<T>() where T : BaseDomain
+        public IQueryable<T> Get<T>() where T : BaseDto
             => GetCollection<T>().AsQueryable();
 
-        public void InsertOne<T>(T obj) where T : BaseDomain
+        public void InsertOne<T>(T obj) where T : BaseDto
             => GetCollection<T>().InsertOne(obj);
 
-        public void ReplaceOne<T>(int id, T obj) where T : BaseDomain
-            => GetCollection<T>().ReplaceOne(x => x.Id.Equals(id), obj);
+        public void ReplaceOne<T>(T obj) where T : BaseDto
+            => GetCollection<T>().ReplaceOne(x => x.Id.Equals(obj.Id), obj);
 
-        public void DeleteOne<T>(int id) where T : BaseDomain
+        public void DeleteOne<T>(int id) where T : BaseDto
             => GetCollection<T>().DeleteOne(x => x.Id.Equals(id));
     }
 }

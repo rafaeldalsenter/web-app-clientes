@@ -19,7 +19,8 @@ namespace WebAppClientes.Infra.CrossCutting.Ioc
 
             services.AddScoped<IMongoDbClient, MongoDbClient>();
             services.AddScoped<IClienteServices, ClienteServices>();
-            services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IClienteForCommandRepository, ClienteForCommandRepository>();
+            services.AddScoped<IClienteForQueryRepository, ClienteForQueryRepository>();
 
             services.AddScoped<IRequestHandler<CreateClienteCommand, bool>, CreateClienteCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveClienteCommand, bool>, RemoveClienteCommandHandler>();
