@@ -1,6 +1,6 @@
 ﻿using WebAppClientes.Domain;
 
-namespace WebAppClientes.Repositories
+namespace WebAppClientes.Domain.Interfaces
 {
     public interface IClienteForCommandRepository
     {

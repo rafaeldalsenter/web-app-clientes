@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Linq;
+using System.Threading.Tasks;
 using WebAppClientes.Domain;
 using WebAppClientes.Infra.CrossCutting.Dtos;
 
@@ -22,13 +23,13 @@ namespace WebAppClientes.Infra.Data
         public IQueryable<T> Get<T>() where T : BaseDto
             => GetCollection<T>().AsQueryable();
 
-        public void InsertOne<T>(T obj) where T : BaseDto
-            => GetCollection<T>().InsertOne(obj);
+        public Task InsertOneAsync<T>(T obj) where T : BaseDto
+            => GetCollection<T>().InsertOneAsync(obj);
 
-        public void ReplaceOne<T>(T obj) where T : BaseDto
-            => GetCollection<T>().ReplaceOne(x => x.Id.Equals(obj.Id), obj);
+        public Task ReplaceOneAsync<T>(T obj) where T : BaseDto
+            => GetCollection<T>().ReplaceOneAsync(x => x.Id.Equals(obj.Id), obj);
 
-        public void DeleteOne<T>(int id) where T : BaseDto
-            => GetCollection<T>().DeleteOne(x => x.Id.Equals(id));
+        public Task DeleteOneAsync<T>(int id) where T : BaseDto
+            => GetCollection<T>().DeleteOneAsync(x => x.Id.Equals(id));
     }
 }

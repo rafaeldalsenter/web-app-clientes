@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebAppClientes.Domain.Commands;
 using WebAppClientes.Domain.Handlers;
+using WebAppClientes.Domain.Interfaces;
 using WebAppClientes.Infra.Data;
 using WebAppClientes.Repositories;
 using WebAppClientes.Services;

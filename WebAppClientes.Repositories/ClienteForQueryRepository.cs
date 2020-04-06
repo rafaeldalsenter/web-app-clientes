@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using WebAppClientes.Domain.Interfaces;
 using WebAppClientes.Infra.CrossCutting.Dtos;
 using WebAppClientes.Infra.Data;
 
@@ -14,11 +16,11 @@ namespace WebAppClientes.Repositories
             _mongoDbClient = mongoDbClient;
         }
 
-        public void Add(ClienteForQueryDto cliente)
-            => _mongoDbClient.InsertOne(cliente);
+        public Task AddAsync(ClienteForQueryDto cliente)
+            => _mongoDbClient.InsertOneAsync(cliente);
 
-        public void Delete(int id)
-            => _mongoDbClient.DeleteOne<ClienteForQueryDto>(id);
+        public Task DeleteAsync(int id)
+            => _mongoDbClient.DeleteOneAsync<ClienteForQueryDto>(id);
 
         public IEnumerable<ClienteForQueryDto> Get()
             => _mongoDbClient.Get<ClienteForQueryDto>().ToList();
@@ -26,7 +28,7 @@ namespace WebAppClientes.Repositories
         public ClienteForQueryDto GetById(int id)
             => _mongoDbClient.Get<ClienteForQueryDto>().FirstOrDefault(x => x.Id.Equals(id));
 
-        public void Update(ClienteForQueryDto cliente)
-            => _mongoDbClient.ReplaceOne(cliente);
+        public Task UpdateAsync(ClienteForQueryDto cliente)
+            => _mongoDbClient.ReplaceOneAsync(cliente);
     }
 }

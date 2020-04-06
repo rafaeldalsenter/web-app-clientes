@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using WebAppClientes.Domain;
+using WebAppClientes.Domain.Interfaces;
 using WebAppClientes.Infra.Data;
 
 namespace WebAppClientes.Repositories
