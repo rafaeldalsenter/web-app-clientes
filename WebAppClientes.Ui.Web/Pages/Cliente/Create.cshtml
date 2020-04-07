@@ -1,0 +1,23 @@
+﻿@page
+@model WebAppClientes.Ui.Web.Pages.Cliente.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form method="post">
+    Name:
+    <input asp-for="Cliente.Nome" />
+    CPF:
+    <input asp-for="Cliente.Cpf" />
+    Rua:
+    <input asp-for="Cliente.Rua" />
+    Bairro:
+    <input asp-for="Cliente.Bairro" />
+    Cidade:
+    <input asp-for="Cliente.Cidade" />
+    Observações:
+    <input asp-for="Cliente.Observacoes" />
+    <input type="submit" />
+</form>

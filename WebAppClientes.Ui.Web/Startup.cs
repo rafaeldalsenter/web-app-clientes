@@ -1,12 +1,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WebAppClientes.Infra.CrossCutting;
 using WebAppClientes.Infra.CrossCutting.AutoMapper;
 using WebAppClientes.Infra.CrossCutting.Ioc;
 using WebAppClientes.Infra.Data;
@@ -28,6 +26,8 @@ namespace WebAppClientes.Ui.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
+
             services.AddHealthChecks();
 
             services.AddMediatR(typeof(Startup));
@@ -53,16 +53,16 @@ namespace WebAppClientes.Ui.Web
 
             MigrateDatabase(app);
 
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseHealthChecks("/check");
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapRazorPages();
             });
         }
     }

@@ -1,0 +1,42 @@
+﻿@page
+@model WebAppClientes.Ui.Web.Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Listagem de clientes</h2>
+
+<a class="nav-link text-dark" asp-area="" asp-page="/Cliente/Create">Novo cliente</a>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Clientes.Any())
+                {
+                    <tr>
+                        <td colspan="4">
+                            <p class="text-center">(não há clientes cadastrados)</p>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var cliente in Model.Clientes)
+                    {
+                        <tr>
+                            <td>@cliente.Nome</td>
+                            <td>@cliente.Cpf</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
