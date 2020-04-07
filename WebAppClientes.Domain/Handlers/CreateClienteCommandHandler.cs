@@ -26,7 +26,7 @@ namespace WebAppClientes.Domain.Handlers
 
         public Task<bool> Handle(CreateClienteCommand request, CancellationToken cancellationToken)
         {
-            var domain = new ClienteBuilder()
+            var cliente = new ClienteBuilder()
                 .WithBairro(request.Bairro)
                 .WithCidade(request.Cidade)
                 .WithCpf(request.Cpf)
@@ -35,13 +35,13 @@ namespace WebAppClientes.Domain.Handlers
                 .WithRua(request.Rua)
                 .Build();
 
-            if (!domain.IsValid())
+            if (!cliente.IsValid())
                 return Task.FromResult(false);
 
-            _clienteForCommandRepository.Add(domain);
+            _clienteForCommandRepository.Add(cliente);
             // TODO Aqui vou ter que ver como retornar o id inserido
 
-            _clienteForQueryRepository.AddAsync(_mapper.Map<ClienteForQueryDto>(domain));
+            _clienteForQueryRepository.AddAsync(_mapper.Map<ClienteForQueryDto>(cliente));
 
             return Task.FromResult(true);
         }
