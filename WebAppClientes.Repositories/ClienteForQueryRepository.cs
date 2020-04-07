@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using WebAppClientes.Domain.Interfaces;
 using WebAppClientes.Infra.CrossCutting.Dtos;
 using WebAppClientes.Infra.Data;
@@ -16,19 +15,19 @@ namespace WebAppClientes.Repositories
             _mongoDbClient = mongoDbClient;
         }
 
-        public Task AddAsync(ClienteForQueryDto cliente)
-            => _mongoDbClient.InsertOneAsync(cliente);
+        public void Add(ClienteDto cliente)
+            => _mongoDbClient.InsertOne(cliente);
 
-        public Task DeleteAsync(int id)
-            => _mongoDbClient.DeleteOneAsync<ClienteForQueryDto>(id);
+        public void Delete(int id)
+            => _mongoDbClient.DeleteOne<ClienteDto>(id);
 
-        public IEnumerable<ClienteForQueryDto> Get()
-            => _mongoDbClient.Get<ClienteForQueryDto>().ToList();
+        public IEnumerable<ClienteDto> Get()
+            => _mongoDbClient.Get<ClienteDto>().ToList();
 
-        public ClienteForQueryDto GetById(int id)
-            => _mongoDbClient.Get<ClienteForQueryDto>().FirstOrDefault(x => x.Id.Equals(id));
+        public ClienteDto GetById(int id)
+            => _mongoDbClient.Get<ClienteDto>().FirstOrDefault(x => x.Id.Equals(id));
 
-        public Task UpdateAsync(ClienteForQueryDto cliente)
-            => _mongoDbClient.ReplaceOneAsync(cliente);
+        public void Update(ClienteDto cliente)
+            => _mongoDbClient.ReplaceOne(cliente);
     }
 }

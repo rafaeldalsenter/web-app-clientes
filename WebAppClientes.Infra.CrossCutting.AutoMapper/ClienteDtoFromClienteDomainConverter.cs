@@ -4,10 +4,10 @@ using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Infra.CrossCutting.AutoMapper
 {
-    public class ClienteDtoFromClienteDomainConverter : ITypeConverter<Cliente, ClienteForQueryDto>
+    public class ClienteDtoFromClienteDomainConverter : ITypeConverter<Cliente, ClienteDto>
     {
-        public ClienteForQueryDto Convert(Cliente source, ClienteForQueryDto destination, ResolutionContext context)
-            => new ClienteForQueryDto
+        public ClienteDto Convert(Cliente source, ClienteDto destination, ResolutionContext context)
+            => new ClienteDto
             {
                 Id = source.Id,
                 Bairro = source.Bairro,

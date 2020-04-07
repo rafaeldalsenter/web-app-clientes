@@ -1,6 +1,6 @@
 ﻿namespace WebAppClientes.Infra.CrossCutting.Dtos
 {
-    public class ClienteForQueryDto : BaseDto
+    public class ClienteDto : BaseDto
     {
         public string Nome { get; set; }
         public string Cpf { get; set; }

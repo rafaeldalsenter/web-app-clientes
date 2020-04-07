@@ -25,7 +25,7 @@ namespace WebAppClientes.Domain.Handlers
         {
             _clienteForCommandRepository.Delete(request.Id);
 
-            _clienteForQueryRepository.DeleteAsync(request.Id);
+            _clienteForQueryRepository.Delete(request.Id);
 
             return Task.FromResult(true);
         }

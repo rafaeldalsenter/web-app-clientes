@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebAppClientes.Domain\WebAppClientes.Domain.csproj" />
+    <ProjectReference Include="..\WebAppClientes.Infra.CrossCutting.Dtos\WebAppClientes.Infra.CrossCutting.Dtos.csproj" />
+  </ItemGroup>
+
 </Project>

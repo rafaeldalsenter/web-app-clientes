@@ -39,7 +39,7 @@ namespace WebAppClientes.Domain.Handlers
 
             _clienteForCommandRepository.Update(cliente);
 
-            _clienteForQueryRepository.UpdateAsync(_mapper.Map<ClienteForQueryDto>(cliente));
+            _clienteForQueryRepository.Update(_mapper.Map<ClienteDto>(cliente));
 
             return Task.FromResult(true);
         }

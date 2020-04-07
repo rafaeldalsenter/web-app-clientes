@@ -41,7 +41,7 @@ namespace WebAppClientes.Domain.Handlers
             _clienteForCommandRepository.Add(cliente);
             // TODO Aqui vou ter que ver como retornar o id inserido
 
-            _clienteForQueryRepository.AddAsync(_mapper.Map<ClienteForQueryDto>(cliente));
+            _clienteForQueryRepository.Add(_mapper.Map<ClienteDto>(cliente));
 
             return Task.FromResult(true);
         }

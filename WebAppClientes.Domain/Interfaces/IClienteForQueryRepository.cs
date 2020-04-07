@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Domain.Interfaces
 {
     public interface IClienteForQueryRepository
     {
-        IEnumerable<ClienteForQueryDto> Get();
+        IEnumerable<ClienteDto> Get();
 
-        ClienteForQueryDto GetById(int id);
+        ClienteDto GetById(int id);
 
-        Task AddAsync(ClienteForQueryDto cliente);
+        void Add(ClienteDto cliente);
 
-        Task UpdateAsync(ClienteForQueryDto cliente);
+        void Update(ClienteDto cliente);
 
-        Task DeleteAsync(int id);
+        void Delete(int id);
     }
 }
