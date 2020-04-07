@@ -11,7 +11,5 @@ namespace WebAppClientes.Domain.Interfaces
         void Update(Cliente cliente);
 
         void Delete(int id);
-
-        void SaveChanges();
     }
 }
