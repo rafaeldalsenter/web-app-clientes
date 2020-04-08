@@ -1,8 +1,21 @@
 ﻿@page
 @model WebAppClientes.Ui.Web.Pages.Cliente.DeleteModel
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Apagar cliente";
 }
 
-<h1>Delete</h1>
-
+<form method="post" class="form-delete-cliente">
+    <h3>@ViewData["Title"]</h3>
+    <input type="hidden" asp-for="Id" />
+    @if (!string.IsNullOrWhiteSpace(ViewData["Errors"]?.ToString()))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @ViewData["Errors"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <p>Você tem certeza que deseja apagar o cliente '@Model.NomeDoCliente'?</p>
+    <input type="submit" class="btn btn-danger" value="Apagar" />
+</form>

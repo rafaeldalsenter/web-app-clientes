@@ -27,21 +27,32 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var cliente in Model.Clientes)
+                @if (!Model.Clientes.Any())
                 {
                     <tr>
-                        <td>@cliente.Nome</td>
-                        <td>@cliente.Cpf</td>
-                        <td>@cliente.Cidade</td>
-                        <td>
-                            @cliente.Observacoes
-                            <i class="fas fa-bath"></i>
-                            <div style="float: right">
-                                <a asp-area="" asp-page="/Cliente/Index" asp-route-id="@cliente.Id" class="link-icon"><i class="demo-icon icon-pencil"></i></a>
-                                <a><i class="demo-icon icon-trash-empty"></i></a>
-                            </div>
+                        <td colspan="4">
+                            <p class="text-center">(não há clientes cadastrados)</p>
                         </td>
                     </tr>
+                }
+                else
+                {
+                    foreach (var cliente in Model.Clientes)
+                    {
+                        <tr>
+                            <td>@cliente.Nome</td>
+                            <td>@cliente.Cpf</td>
+                            <td>@cliente.Cidade</td>
+                            <td>
+                                @cliente.Observacoes
+                                <i class="fas fa-bath"></i>
+                                <div style="float: right">
+                                    <a asp-area="" asp-page="/Cliente/Index" asp-route-id="@cliente.Id" class="link-icon"><i class="demo-icon icon-pencil"></i></a>
+                                    <a asp-area="" asp-page="/Cliente/Delete" asp-route-id="@cliente.Id" class="link-icon"><i class="demo-icon icon-trash-empty"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>

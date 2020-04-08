@@ -86,6 +86,11 @@ body {
     margin: auto;
 }
 
+.form-delete-cliente {
+    width: 50%;
+    margin: auto;
+}
+
 a.link-icon {
     color: #000000
 }

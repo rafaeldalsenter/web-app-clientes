@@ -5,7 +5,7 @@
 }
 
 <form method="post" class="form-create-cliente">
-    <h1>@ViewData["Title"]</h1>
+    <h3>@ViewData["Title"]</h3>
     <input type="hidden" asp-for="Cliente.Id" />
     @if (!string.IsNullOrWhiteSpace(ViewData["Errors"]?.ToString()))
     {
@@ -47,5 +47,5 @@
         <textarea class="form-control" id="textAreaObservacoes" rows="3" asp-for="Cliente.Observacoes"></textarea>
     </div>
 
-    <input type="submit" class="btn btn-primary" />
+    <input type="submit" class="btn btn-primary" value="Salvar" />
 </form>

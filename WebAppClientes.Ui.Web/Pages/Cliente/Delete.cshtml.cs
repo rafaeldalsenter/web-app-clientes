@@ -18,13 +18,29 @@ namespace WebAppClientes.Ui.Web.Pages.Cliente
             _clienteServices = clienteServices;
         }
 
-        public void OnGet()
+        public void OnGet(int id)
         {
+            var dto = _clienteServices.GetById(id);
+
+            if (dto is null)
+            {
+                RedirectToPage("/Index");
+                return;
+            }
+
+            Id = dto.Id;
+            NomeDoCliente = dto.Nome;
         }
+
+        [BindProperty]
+        public int Id { get; set; }
+
+        [BindProperty]
+        public string NomeDoCliente { get; set; }
 
         public async Task<IActionResult> OnPost()
         {
-            var retorno = await _clienteServices.Delete(1);
+            var retorno = await _clienteServices.Delete(Id);
 
             if (!retorno.IsValid())
             {
