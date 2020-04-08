@@ -1,5 +1,5 @@
 # web-app-clientes
-🙋‍♂️ App Web para cadastro clientes utilizando CQRS com bancos PostgreSQL e MongoDB.
+👨‍🦱 App Web para cadastro clientes utilizando CQRS com bancos PostgreSQL e MongoDB.
 
 Aplicação web criada em ASP NET Core utilizando o padrão arquitetural CQRS. A divisão de responsabilidade de gravação e leitura está separada de forma conceitual e física, sendo utilizado os bancos PostgreSQL e MongoDb. A estratégia de sincronização adotada foi a **atualização automática**, ou seja, toda alteração de estado do banco de gravação dispara um processo síncrono para atualização do banco de leitura.
 
