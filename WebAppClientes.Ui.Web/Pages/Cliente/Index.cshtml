@@ -1,13 +1,12 @@
 ﻿@page
-@model WebAppClientes.Ui.Web.Pages.Cliente.UpdateModel
+@model WebAppClientes.Ui.Web.Pages.Cliente.IndexModel
 @{
-    ViewData["Title"] = "Alterar cliente";
+    ViewData["Title"] = Model.Cliente.Id.Equals(0) ? "Cadastrar cliente" : "Alterar cliente";
 }
 
 <form method="post" class="form-create-cliente">
     <h1>@ViewData["Title"]</h1>
     <input type="hidden" asp-for="Cliente.Id" />
-    <p>Atualize as informações do cliente :)</p>
     @if (!string.IsNullOrWhiteSpace(ViewData["Errors"]?.ToString()))
     {
         <div class="alert alert-danger alert-dismissible fade show" role="alert">

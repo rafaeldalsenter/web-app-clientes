@@ -3,7 +3,7 @@
 
 // Write your Javascript code.
 $("#btnNovoCliente").click(function () {
-    window.location.href = "Cliente/Create";
+    window.location.href = "Cliente/Index";
 });
 
 $("#btnDeleteCliente").click(function () {
