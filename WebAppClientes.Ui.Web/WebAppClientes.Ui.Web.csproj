@@ -20,4 +20,8 @@
     <ProjectReference Include="..\WebAppClientes.Infra.CrossCutting.Ioc\WebAppClientes.Infra.CrossCutting.Ioc.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\fontello\" />
+  </ItemGroup>
+
 </Project>

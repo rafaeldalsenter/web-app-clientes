@@ -1,0 +1,4 @@
+
+.icon-trash-empty:before { content: '\e800'; } /* '' */
+.icon-pencil:before { content: '\e801'; } /* '' */
+.icon-link-ext:before { content: '\f08e'; } /* '' */

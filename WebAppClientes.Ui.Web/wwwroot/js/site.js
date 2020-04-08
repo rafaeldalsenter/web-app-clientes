@@ -5,3 +5,6 @@
 $("#btnNovoCliente").click(function () {
     window.location.href = "Cliente/Create";
 });
+
+$("#btnDeleteCliente").click(function () {
+});
