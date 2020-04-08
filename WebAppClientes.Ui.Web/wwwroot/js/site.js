@@ -2,3 +2,6 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+$("#btnNovoCliente").click(function () {
+    window.location.href = "Cliente/Create";
+});

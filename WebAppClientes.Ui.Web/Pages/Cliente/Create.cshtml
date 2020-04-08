@@ -1,23 +1,42 @@
 ﻿@page
 @model WebAppClientes.Ui.Web.Pages.Cliente.CreateModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastrar novo cliente";
 }
 
-<h1>Create</h1>
+<form method="post" class="form-create-cliente">
+    <h1>Novo cliente</h1>
+    <p>Preencha os campos abaixo para cadastrar um novo cliente :)</p>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputNome">Nome</label>
+            <input class="form-control" id="inputNome" asp-for="Cliente.Nome">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputCpf">CPF</label>
+            <input class="form-control" id="inputCpf" asp-for="Cliente.Cpf">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Endereço</label>
+        <input type="text" class="form-control" id="inputAddress" asp-for="Cliente.Rua" placeholder="Rua tal, numero tal, próximo de tal">
+    </div>
 
-<form method="post">
-    Name:
-    <input asp-for="Cliente.Nome" />
-    CPF:
-    <input asp-for="Cliente.Cpf" />
-    Rua:
-    <input asp-for="Cliente.Rua" />
-    Bairro:
-    <input asp-for="Cliente.Bairro" />
-    Cidade:
-    <input asp-for="Cliente.Cidade" />
-    Observações:
-    <input asp-for="Cliente.Observacoes" />
-    <input type="submit" />
+    <div class="form-row">
+        <div class="form-group col-md-7">
+            <label for="inputBairro">Bairro</label>
+            <input type="text" class="form-control" id="inputBairro" asp-for="Cliente.Bairro">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="inputCidade">Cidade</label>
+            <input type="text" class="form-control" id="inputCidade" asp-for="Cliente.Cidade">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="textAreaObservacoes">Observações</label>
+        <textarea class="form-control" id="textAreaObservacoes" rows="3" asp-for="Cliente.Observacoes"></textarea>
+    </div>
+
+    <input type="submit" class="btn btn-primary" />
 </form>
