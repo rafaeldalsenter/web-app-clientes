@@ -7,7 +7,7 @@ A estratégia de sincronização adotada foi a **atualização automática**, ou
 
 Abaixo, segue diagrama de como está separado as camadas do Projeto:
 
-![](https://github.com/rafaeldalsenter/web-app-clientes/blob/master/diagrama.png  | width=245)
+![](https://github.com/rafaeldalsenter/web-app-clientes/blob/master/diagrama.png)
 
 Há um arquivo **docker-compose** para subir o ambiente, o mesmo subirá a aplicação e os bancos PostgreSQL e MongoDB, só rodar:
 
