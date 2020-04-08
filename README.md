@@ -12,3 +12,5 @@ Há um arquivo **docker-compose** para subir o ambiente, o mesmo subirá a aplic
 ```
 docker-compose up --build -d
 ```
+
+A aplicação web sobre no endereço http://localhost:80
