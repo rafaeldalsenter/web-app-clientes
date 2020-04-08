@@ -5,11 +5,11 @@ namespace WebAppClientes.Services
 {
     public interface IClienteServices
     {
-        Task Add(ClienteDto dto);
+        Task<CommandReturnDto> Add(ClienteDto dto);
 
-        Task Delete(int id);
+        Task<CommandReturnDto> Delete(int id);
 
-        Task Update(ClienteDto dto);
+        Task<CommandReturnDto> Update(ClienteDto dto);
 
         ClienteDto GetById(int id);
     }

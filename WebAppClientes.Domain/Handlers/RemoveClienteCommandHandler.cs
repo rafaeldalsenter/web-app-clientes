@@ -1,15 +1,14 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WebAppClientes.Domain.Commands;
 using WebAppClientes.Domain.Interfaces;
+using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Domain.Handlers
 {
-    public class RemoveClienteCommandHandler : IRequestHandler<RemoveClienteCommand, bool>
+    public class RemoveClienteCommandHandler : IRequestHandler<RemoveClienteCommand, CommandReturnDto>
     {
         private readonly IClienteForCommandRepository _clienteForCommandRepository;
         private readonly IClienteForQueryRepository _clienteForQueryRepository;
@@ -21,13 +20,22 @@ namespace WebAppClientes.Domain.Handlers
             _clienteForQueryRepository = clienteForQueryRepository;
         }
 
-        public Task<bool> Handle(RemoveClienteCommand request, CancellationToken cancellationToken)
+        public Task<CommandReturnDto> Handle(RemoveClienteCommand request, CancellationToken cancellationToken)
         {
-            _clienteForCommandRepository.Delete(request.Id);
+            try
+            {
+                _clienteForCommandRepository.Delete(request.Id);
 
-            _clienteForQueryRepository.Delete(request.Id);
+                _clienteForQueryRepository.Delete(request.Id);
 
-            return Task.FromResult(true);
+                return Task.FromResult(new CommandReturnDto());
+            }
+            catch (Exception ex)
+            {
+                var retornoComErro = new CommandReturnDto();
+                retornoComErro.AddError(ex.Message);
+                return Task.FromResult(retornoComErro);
+            }
         }
     }
 }

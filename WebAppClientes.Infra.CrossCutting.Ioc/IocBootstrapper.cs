@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WebAppClientes.Domain.Commands;
 using WebAppClientes.Domain.Handlers;
 using WebAppClientes.Domain.Interfaces;
+using WebAppClientes.Infra.CrossCutting.Dtos;
 using WebAppClientes.Infra.Data;
 using WebAppClientes.Repositories;
 using WebAppClientes.Services;
@@ -23,9 +24,9 @@ namespace WebAppClientes.Infra.CrossCutting.Ioc
             services.AddScoped<IClienteForCommandRepository, ClienteForCommandRepository>();
             services.AddScoped<IClienteForQueryRepository, ClienteForQueryRepository>();
 
-            services.AddScoped<IRequestHandler<CreateClienteCommand, bool>, CreateClienteCommandHandler>();
-            services.AddScoped<IRequestHandler<RemoveClienteCommand, bool>, RemoveClienteCommandHandler>();
-            services.AddScoped<IRequestHandler<UpdateClienteCommand, bool>, UpdateClienteCommandHandler>();
+            services.AddScoped<IRequestHandler<CreateClienteCommand, CommandReturnDto>, CreateClienteCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveClienteCommand, CommandReturnDto>, RemoveClienteCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateClienteCommand, CommandReturnDto>, UpdateClienteCommandHandler>();
         }
     }
 }

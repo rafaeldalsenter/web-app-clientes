@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using WebAppClientes.Domain.Builders;
@@ -9,7 +10,7 @@ using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Domain.Handlers
 {
-    public class CreateClienteCommandHandler : IRequestHandler<CreateClienteCommand, bool>
+    public class CreateClienteCommandHandler : IRequestHandler<CreateClienteCommand, CommandReturnDto>
     {
         private readonly IClienteForCommandRepository _clienteForCommandRepository;
         private readonly IClienteForQueryRepository _clienteForQueryRepository;
@@ -24,7 +25,9 @@ namespace WebAppClientes.Domain.Handlers
             _clienteForQueryRepository = clienteForQueryRepository;
         }
 
-        public Task<bool> Handle(CreateClienteCommand request, CancellationToken cancellationToken)
+        private CommandReturnDto MapDto(Cliente cliente) => _mapper.Map<CommandReturnDto>(cliente);
+
+        public Task<CommandReturnDto> Handle(CreateClienteCommand request, CancellationToken cancellationToken)
         {
             var cliente = new ClienteBuilder()
                 .WithBairro(request.Bairro)
@@ -36,13 +39,22 @@ namespace WebAppClientes.Domain.Handlers
                 .Build();
 
             if (!cliente.IsValid())
-                return Task.FromResult(false);
+                return Task.FromResult(MapDto(cliente));
 
-            _clienteForCommandRepository.Add(cliente);
+            try
+            {
+                _clienteForCommandRepository.Add(cliente);
 
-            _clienteForQueryRepository.Add(_mapper.Map<ClienteDto>(cliente));
+                _clienteForQueryRepository.Add(_mapper.Map<ClienteDto>(cliente));
 
-            return Task.FromResult(true);
+                return Task.FromResult(MapDto(cliente));
+            }
+            catch (Exception ex)
+            {
+                var retornoComErro = new CommandReturnDto();
+                retornoComErro.AddError(ex.Message);
+                return Task.FromResult(retornoComErro);
+            }
         }
     }
 }

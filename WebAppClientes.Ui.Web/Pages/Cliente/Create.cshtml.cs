@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using WebAppClientes.Infra.CrossCutting.Dtos;
 using WebAppClientes.Services;
+using WebAppClientes.Ui.Web.Extensions;
 using WebAppClientes.Ui.Web.Models;
 
 namespace WebAppClientes.Ui.Web.Pages.Cliente
@@ -25,12 +26,7 @@ namespace WebAppClientes.Ui.Web.Pages.Cliente
 
         public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            await _clienteServices.Add(new ClienteDto
+            var retorno = await _clienteServices.Add(new ClienteDto
             {
                 Nome = Cliente.Nome,
                 Bairro = Cliente.Bairro,
@@ -39,6 +35,12 @@ namespace WebAppClientes.Ui.Web.Pages.Cliente
                 Observacoes = Cliente.Observacoes,
                 Rua = Cliente.Rua
             });
+
+            if (!retorno.IsValid())
+            {
+                ViewData.Add("Errors", retorno.ErrorMessages.ToErrorMessage());
+                return Page();
+            }
 
             return RedirectToPage("/Index");
         }

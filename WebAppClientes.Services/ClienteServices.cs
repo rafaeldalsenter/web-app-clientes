@@ -22,24 +22,18 @@ namespace WebAppClientes.Services
             _clienteForQueryRepository = clienteForQueryRepository;
         }
 
-        public async Task Add(ClienteDto dto)
-        {
-            await _mediator.Send(_mapper.Map<CreateClienteCommand>(dto));
-        }
+        public async Task<CommandReturnDto> Add(ClienteDto dto)
+            => await _mediator.Send(_mapper.Map<CreateClienteCommand>(dto));
 
-        public async Task Delete(int id)
-        {
-            await _mediator.Send(new RemoveClienteCommand(id));
-        }
+        public async Task<CommandReturnDto> Delete(int id)
+            => await _mediator.Send(new RemoveClienteCommand(id));
 
         public ClienteDto GetById(int id)
         {
             return _clienteForQueryRepository.GetById(id);
         }
 
-        public async Task Update(ClienteDto dto)
-        {
-            await _mediator.Send(_mapper.Map<UpdateClienteCommand>(dto));
-        }
+        public async Task<CommandReturnDto> Update(ClienteDto dto)
+            => await _mediator.Send(_mapper.Map<UpdateClienteCommand>(dto));
     }
 }

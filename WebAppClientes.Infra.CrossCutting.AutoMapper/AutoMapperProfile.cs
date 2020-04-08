@@ -12,6 +12,7 @@ namespace WebAppClientes.Infra.CrossCutting.AutoMapper
             CreateMap<Cliente, ClienteDto>().ConvertUsing<ClienteDtoFromClienteDomainConverter>();
             CreateMap<ClienteDto, CreateClienteCommand>().ConvertUsing<CreateClienteCommandFromClienteDtoConverter>();
             CreateMap<ClienteDto, UpdateClienteCommand>().ConvertUsing<UpdateClienteCommandFromClienteDtoConverter>();
+            CreateMap<Cliente, CommandReturnDto>().ConvertUsing<CommandReturnDtoFromClienteConverter>();
         }
     }
 }

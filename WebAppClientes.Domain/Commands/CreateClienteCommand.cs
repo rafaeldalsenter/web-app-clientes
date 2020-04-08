@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using WebAppClientes.Infra.CrossCutting.Dtos;
 
 namespace WebAppClientes.Domain.Commands
 {
-    public class CreateClienteCommand : IRequest<bool>
+    public class CreateClienteCommand : IRequest<CommandReturnDto>
     {
         public string Nome { get; private set; }
         public string Cpf { get; private set; }
