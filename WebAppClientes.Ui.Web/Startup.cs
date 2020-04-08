@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Threading;
 using WebAppClientes.Infra.CrossCutting.AutoMapper;
 using WebAppClientes.Infra.CrossCutting.Ioc;
 using WebAppClientes.Infra.Data;
@@ -39,6 +41,10 @@ namespace WebAppClientes.Ui.Web
 
         public void MigrateDatabase(IApplicationBuilder app)
         {
+            // Colocado temporariamente, necessário pois mesmo com o container do PostgreSQL subindo antes da aplicação
+            // é necessário aguardar o a aplicação do banco subir.
+            Thread.Sleep(TimeSpan.FromSeconds(10));
+
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             using (var context = serviceScope.ServiceProvider.GetService<DatabaseContext>())
                 context.Database.Migrate();

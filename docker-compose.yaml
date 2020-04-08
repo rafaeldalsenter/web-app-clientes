@@ -1,6 +1,18 @@
 version: '3'
 
 services:
+  app:
+    build:
+      dockerfile: ./WebAppClientes.Ui.Web/Dockerfile
+      context: .
+    container_name: app
+    ports:
+      - "80:80"
+    depends_on: 
+      - "db-postgres"
+      - "db-mongo"
+    networks: 
+      - default_network
   db-postgres:
     image: postgres
     container_name: db-postgres
@@ -8,6 +20,8 @@ services:
       POSTGRES_PASSWORD: "postgres"
     ports:
       - "5432:5432"
+    networks: 
+      - default_network
   db-mongo:
     image: mongo
     container_name: db-mongo
@@ -16,3 +30,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     ports:
       - "27017:27017"
+    networks: 
+      - default_network
+networks: 
+  default_network:
+    driver: bridge
