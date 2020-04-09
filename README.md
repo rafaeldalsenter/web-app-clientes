@@ -14,3 +14,5 @@ docker-compose up --build -d
 ```
 
 A aplicação web sobre no endereço http://localhost:80
+
+Também foi criado uma imagem Docker pronta para rodar com a aplicação. Está diponível no [Docker Hub](https://hub.docker.com/repository/docker/rafaeldalsenter/web-app-cliente)
