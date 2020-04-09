@@ -3,7 +3,7 @@ version: '3'
 services:
   app:
     build:
-      dockerfile: ./WebAppClientes.Ui.Web/Dockerfile
+      dockerfile: ./WebAppClientes.Ui.Web/Debug.dockerfile
       context: .
     container_name: app
     ports:
@@ -11,6 +11,9 @@ services:
     depends_on: 
       - "db-postgres"
       - "db-mongo"
+    environment:
+      POSTGRE_CONNECTIONSTRING: Host=db-postgres;Port=5432;Database=postgres;User ID=postgres;Password=postgres
+      MONGODB_CONNECTIONSTRING: mongodb://root:root@db-mongo:27017
     networks: 
       - default_network
   db-postgres:
